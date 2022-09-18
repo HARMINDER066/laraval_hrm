@@ -1,10 +1,9 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
       <div class="sidebar-header">
         <div>
-          <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
+          <img src="{{ asset('assets/front/img/'.$commonsetting->header_logo) }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-          <h4 class="logo-text">Dashkote</h4>
         </div>
         <div class="toggle-icon ms-auto">
           <ion-icon name="menu-sharp"></ion-icon>
@@ -32,13 +31,26 @@
           </ul>
         </li>
          <li>
-          <a href="{{route('vendor.attendence.index')}}">
+          <a class="has-arrow" href="javascript:;">
             <div class="parent-icon">
-              <ion-icon name="person-circle-sharp"></ion-icon>
+              <ion-icon name="lock-closed-sharp"></ion-icon>
             </div>
-            <div class="menu-title">Attendence</div>
+            <div class="menu-title">Leave</div>
           </a>
+          <ul>
+            <li> <a href="{{route('vendor.leave.index')}}">
+                <ion-icon name="ellipse-outline"></ion-icon>Leave List
+              </a>
+            </li>
+            <li> <a href="{{route('vendor.leaveadd')}}">
+                <ion-icon name="ellipse-outline"></ion-icon>Leave Add
+              </a>
+            </li>
+            
+          </ul>
         </li>
+       
+        
        <!--  <li>
           <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">

@@ -5,6 +5,9 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\auth\AuthController;
 use App\Http\Controllers\admin\PackageController;
 use App\Http\Controllers\admin\AttendenceController;
+use App\Http\Controllers\admin\VendorController;
+use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\admin\LeaveController;
 
 
 Route::prefix('admin')->group(function() {
@@ -39,6 +42,30 @@ Route::get('user_attendence_edit/{id}', [AttendenceController::class, 'user_atte
 Route::post('user_attendence_edit/{id}', [AttendenceController::class, 'user_attendence_edit'])->name('admin.users.edit_attendence_store');
 Route::post('attendence_delete/{id}', [AttendenceController::class, 'attendence_delete'])->name('admin.users.attendence_delete');
 
+
+Route::get('/vendor/', [VendorController::class, 'index'])->name('admin.vendor.index');
+Route::get('/vendoradd/', [VendorController::class, 'add'])->name('admin.vendoradd');
+Route::post('/vendoraddsubmit/', [VendorController::class, 'store'])->name('admin.vendoraddsubmit');
+Route::get('vendorstatus/active_inactive/', [VendorController::class, 'status_change'])->name('admin.vendor.active_inactive');
+Route::get('vendor_edit/{id}', [VendorController::class, 'user_edit'])->name('admin.vendor.edit_vendor');
+Route::post('vendor_edit_save/{id}', [VendorController::class, 'user_edit_save'])->name('admin.vendor.editsave');
+Route::post('vendor_delete/{id}', [VendorController::class, 'user_delete'])->name('admin.vendor.delete');
+Route::get('vendor_password_change/{id}', [VendorController::class, 'customer_changepassword'])->name('admin.vendor.customer_changepassword');
+Route::post('vendor_password_change/{id}', [VendorController::class, 'customer_changepassword'])->name('admin.vendor.changepasswordstore');
+
+Route::get('/settingadd/', [SettingController::class, 'add'])->name('admin.settingadd');
+Route::post('/settingaddsubmit/', [SettingController::class, 'store'])->name('admin.settingaddsubmit');
+
+
+Route::get('/leave/', [LeaveController::class, 'index'])->name('admin.leave.index');
+Route::get('/all_leave/', [LeaveController::class, 'all_employee_leave'])->name('admin.leave.all_leave');
+Route::get('/leaveadd/', [LeaveController::class, 'add'])->name('admin.leaveadd');
+Route::post('/leaveaddsubmit/', [LeaveController::class, 'store'])->name('admin.leaveaddsubmit');
+Route::get('leave_edit/{id}', [LeaveController::class, 'leave_edit'])->name('admin.leave.edit_leave');
+Route::post('leave_edit_save/{id}', [LeaveController::class, 'leave_edit_save'])->name('admin.leave.editsave');
+Route::post('leave_delete/{id}', [LeaveController::class, 'leave_delete'])->name('admin.leave.delete');
+Route::get('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('admin.leave.leave_status_change');
+Route::post('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('admin.leave.leave_status_change');
 
 
 });

@@ -43,11 +43,11 @@ html.semi-dark .sidebar-wrapper .metismenu .mm-active>a, html.semi-dark .sidebar
 
 
 html.semi-dark .sidebar-wrapper .sidebar-header img {
-    filter: invert(1) grayscale(100%) brightness(200%);
+   /* filter: invert(1) grayscale(100%) brightness(200%);*/
 }
 
 html.semi-dark .sidebar-wrapper .simplebar-scrollbar:before {
-	background: rgba(255, 255, 255, .4)
+    background: rgba(255, 255, 255, .4)
 }
 
 

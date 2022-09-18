@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\vendor\UserController;
 use App\Http\Controllers\vendor\auth\LoginController;
 use App\Http\Controllers\vendor\AttendenceController;
+use App\Http\Controllers\vendor\LeaveController;
 
 
 
@@ -32,6 +33,16 @@ Route::get('user_attendence_edit/{id}', [AttendenceController::class, 'user_atte
 Route::post('user_attendence_edit/{id}', [AttendenceController::class, 'user_attendence_edit'])->name('vendor.users.edit_attendence_store');
 Route::post('attendence_delete/{id}', [AttendenceController::class, 'attendence_delete'])->name('vendor.users.attendence_delete');
 
+
+
+Route::get('/leave/', [LeaveController::class, 'index'])->name('vendor.leave.index');
+Route::get('/leaveadd/', [LeaveController::class, 'add'])->name('vendor.leaveadd');
+Route::post('/leaveaddsubmit/', [LeaveController::class, 'store'])->name('vendor.leaveaddsubmit');
+Route::get('leave_edit/{id}', [LeaveController::class, 'leave_edit'])->name('vendor.leave.edit_leave');
+Route::post('leave_edit_save/{id}', [LeaveController::class, 'leave_edit_save'])->name('vendor.leave.editsave');
+Route::post('leave_delete/{id}', [LeaveController::class, 'leave_delete'])->name('vendor.leave.delete');
+Route::get('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('vendor.leave.leave_status_change');
+Route::post('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('vendor.leave.leave_status_change');
 
 
 

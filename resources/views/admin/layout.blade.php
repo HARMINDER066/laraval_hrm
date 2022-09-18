@@ -8,12 +8,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="shortcut icon" href="{{  asset('assets/front/img/'.$commonsetting->fav_icon) }}" type="image/png">
 
 
   <!-- loader-->
   <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet" />
   <script src="{{ asset('backend/assets/js/pace.min.js') }}"></script>
-
   <!--plugins-->
   <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
   <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -31,9 +31,29 @@
   <link href="{{ asset('backend/assets/css/dark-theme.css') }}" rel="stylesheet" />
   <link href="{{ asset('backend/assets/css/semi-dark.css') }}" rel="stylesheet" />
   <link href="{{ asset('backend/assets/css/header-colors.css') }}" rel="stylesheet" />
+
 @stack('custom-css')
 
-  <title>Dashkote - Bootstrap5 Admin Template</title>
+  <title>{{$commonsetting->website_title}}</title>
+  <style type="text/css">
+    html.semi-dark .sidebar-wrapper, html.semi-dark .sidebar-wrapper .sidebar-header {
+    background-color: {{$commonsetting->sidebar_color}};
+  }
+  .sidebar-wrapper .metismenu li {
+    background: {{$commonsetting->navbar_color}};
+}
+html.semi-dark .sidebar-wrapper .metismenu a
+{
+  color: {{$commonsetting->navbar_link_color}};
+}
+html.semi-dark .sidebar-wrapper .metismenu .mm-active>a, html.semi-dark .sidebar-wrapper .metismenu a:active, html.semi-dark .sidebar-wrapper .metismenu a:focus, html.semi-dark .sidebar-wrapper .metismenu a:hover
+{
+  background-color:  {{$commonsetting->navbar_hover_color}}; ;
+
+  }
+
+  </style>
+
 </head>
 
 <body>
@@ -67,6 +87,7 @@
   <script src="{{  asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
   <script type="module" src="../../../../unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.esm.js')}}"></script>
   <!--plugins-->
+
   <script src="{{  asset('backend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
   <script src="{{  asset('backend/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
   <script src="{{  asset('backend/assets/plugins/chartjs/chart.min.js')}}"></script>
@@ -74,6 +95,9 @@
   <!-- Main JS-->
   <script src="{{  asset('backend/assets/js/main.js')}}"></script>
     <script src="{{  asset('backend/assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+      <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="//cdn.rawgit.com/twbs/bootstrap/v4.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
     @stack('custom-scripts')
 
   

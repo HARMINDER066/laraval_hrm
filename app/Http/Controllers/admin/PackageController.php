@@ -17,7 +17,7 @@ class PackageController extends Controller
      public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Package::select('*');
+            $data = Package::orderby('id','desc')->select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('status', function ($data) {
