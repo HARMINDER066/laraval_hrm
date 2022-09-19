@@ -35,4 +35,13 @@ class LoginController extends Controller
          Session::flash('error', 'Credential Not Found');
         return back()->withInput($request->only('email', 'remember'));
     }
+       public function logout(Request $request)
+{
+    Auth::logout();
+ 
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    Session::flash('success', 'Admin Logout');
+    return redirect()->route('vendor.login');
+}
 }

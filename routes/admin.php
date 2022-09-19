@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\AttendenceController;
 use App\Http\Controllers\admin\VendorController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\LeaveController;
+use App\Http\Controllers\admin\ProfileController;
 
 
 Route::prefix('admin')->group(function() {
@@ -66,6 +67,11 @@ Route::post('leave_edit_save/{id}', [LeaveController::class, 'leave_edit_save'])
 Route::post('leave_delete/{id}', [LeaveController::class, 'leave_delete'])->name('admin.leave.delete');
 Route::get('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('admin.leave.leave_status_change');
 Route::post('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('admin.leave.leave_status_change');
+
+Route::get('profile/', [ProfileController::class, 'add'])->name('admin.profile.add');
+Route::post('profilesave/{id}', [ProfileController::class, 'store'])->name('admin.profile.save');
+Route::post('passwordsave/{id}', [ProfileController::class, 'passwordsave'])->name('admin.profile.passwordsave');
+Route::get('logout', [AuthController::class, 'logout'])->name('admin.user.logout');
 
 
 });

@@ -5,6 +5,7 @@ use App\Http\Controllers\vendor\UserController;
 use App\Http\Controllers\vendor\auth\LoginController;
 use App\Http\Controllers\vendor\AttendenceController;
 use App\Http\Controllers\vendor\LeaveController;
+use App\Http\Controllers\vendor\ProfileController;
 
 
 
@@ -44,6 +45,11 @@ Route::post('leave_delete/{id}', [LeaveController::class, 'leave_delete'])->name
 Route::get('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('vendor.leave.leave_status_change');
 Route::post('leave_status_change/{id}', [LeaveController::class, 'leave_status_change'])->name('vendor.leave.leave_status_change');
 
+
+Route::get('profile/', [ProfileController::class, 'add'])->name('vendor.profile.add');
+Route::post('profilesave/{id}', [ProfileController::class, 'store'])->name('vendor.profile.save');
+Route::post('passwordsave/{id}', [ProfileController::class, 'passwordsave'])->name('vendor.profile.passwordsave');
+Route::get('logout', [LoginController::class, 'logout'])->name('vendor.user.logout');
 
 
 });
